@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import "./Ingredients.scss";
-import BottomBun from "../../assets/bottom-bun.png";
-import TopBun from "../../assets/top-bun.png";
+// import BottomBun from "../../assets/bottom-bun.png";
+// import TopBun from "../../assets/top-bun.png";
 import Cheese from "../../assets/cheese.png";
 import Fish from "../../assets/fish.png";
 import Lettuce from "../../assets/lettuce.png";
@@ -76,8 +76,6 @@ export default class Ingredients extends Component {
 
     burgerContent = () => {
         let {
-            bottomBun,
-            topBun,
             lettuce,
             tomato,
             cheese,
@@ -97,7 +95,7 @@ export default class Ingredients extends Component {
     
             for (let i = 0; i < lettuce; i++){
                 if(burger.length <= 6){
-                burger.push(<div key={burger.length} className="lettuseSide"></div>);
+                burger.push(<div key={burger.length} className="lettuceSide"></div>);
                 }
             }
 
@@ -115,12 +113,13 @@ export default class Ingredients extends Component {
                 burger.push(<div key={burger.length} className="fishSide"></div>);
             }
             if(burger.length === 0)
-                burger.push(<p className="AddIngredientsTitle" key="0">
+                burger.push(<p className="addIngredientsTitle" key="0">
                     Add items to create your burger. First item<br/> must be bottom bun. To finish your burger<br/> choose top bun
                 </p>);
             
                else if(burger.length >= 6){
-                    burger.push(<p>Burger shouldn't have more than 7 ingredients!</p>);
+                   burger = [];
+                    burger.push(<p className="toMuchToppingsAlert">The maximum number of items <br/> is 9 including buns</p>);
                 }    
         
 
@@ -143,7 +142,7 @@ export default class Ingredients extends Component {
                         <button className="btn-remove" onClick={() => this.addRemoveIngredient('remove','tomato')}>-</button>
                     </div>
                     <div className="image-wrapper">
-                    <img className="image" src={Tomato} width="150px"></img>
+                    <img className="image" src={Tomato} width="150px" alt="tomato"></img>
                     </div>
                     <p>Tomato</p>
                     </div>
@@ -154,7 +153,7 @@ export default class Ingredients extends Component {
                         <button className="btn-remove" onClick={() => this.addRemoveIngredient('remove','meat')}>-</button>
                     </div>
                     <div className="image-wrapper">
-                    <img className="image" src={Burger} width="150px"></img>
+                    <img className="image" src={Burger} width="150px" alt="meat"></img>
                     </div>
                     <p>Meat</p>
                     </div>
@@ -165,7 +164,7 @@ export default class Ingredients extends Component {
                         <button className="btn-remove" onClick={() => this.addRemoveIngredient('remove','fish')}>-</button>
                     </div>
                     <div className="image-wrapper">
-                    <img className="image" src={Fish} width="150px"></img>
+                    <img className="image" src={Fish} width="150px" alt="fish"></img>
                     </div>
                     <p>Fish</p>
                     </div>
@@ -177,7 +176,7 @@ export default class Ingredients extends Component {
                         <button className="btn-remove" onClick={() => this.addRemoveIngredient('remove','lettuce')}>-</button>
                     </div>
                     <div className="image-wrapper">
-                    <img className="image" src={Lettuce} width="150px"></img>
+                    <img className="image" src={Lettuce} width="150px" alt="lettuce"></img>
                     </div>
                     <p>Lettuce</p>
                     </div>
@@ -188,7 +187,7 @@ export default class Ingredients extends Component {
                         <button className="btn-remove" onClick={() => this.addRemoveIngredient('remove','cheese')}>-</button>
                     </div>
                     <div className="image-wrapper">
-                    <img className="image" src={Cheese} width="150px"></img>
+                    <img className="image" src={Cheese} width="150px" alt="cheese"></img>
                     </div>
                     <p>Cheese</p>
                     </div>
