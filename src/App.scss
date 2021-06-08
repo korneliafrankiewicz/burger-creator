@@ -1,0 +1,14 @@
+@import "./style/fonts";
+@import "./style/reset"; 
+@import "./style/colors";
+
+
+body {
+  background-color: $color-brown;
+  color: $color-light;
+
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+}
